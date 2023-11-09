@@ -4,12 +4,12 @@ import Hashtag from './Hashtag';
 import { UserData } from '../../utils/utils';
 
 function User({ data }: { data: UserData }) {
-  const { name, image, level, hashtags, intro } = data;
+  const { name, image, level, hashtags, intro, online } = data;
 
   return (
     <S.Card>
       <S.Image image={image} />
-      <S.Status />
+      <S.Status online={online} />
       <S.Info>
         <S.User>
           <S.Name>{name}</S.Name>

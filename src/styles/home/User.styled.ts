@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-interface ImageProps {
+interface Props {
   image?: string;
+  online?: boolean;
 }
 
 export const Card = styled.div`
@@ -25,7 +26,7 @@ export const Card = styled.div`
   }
 `;
 
-export const Image = styled.div<ImageProps>`
+export const Image = styled.div<Props>`
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -37,9 +38,9 @@ export const Image = styled.div<ImageProps>`
   flex-shrink: 0;
 `;
 
-export const Status = styled.div`
-  width: 23px;
-  height: 23px;
+export const Status = styled.div<Props>`
+  width: 21px;
+  height: 21px;
   border-radius: 50%;
   background-color: #fff;
 
@@ -52,7 +53,8 @@ export const Status = styled.div`
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: black;
+    background-color: ${(props) =>
+      props.online ? 'var(--color-green)' : 'var(--color-red)'};
 
     position: absolute;
     top: 0;
